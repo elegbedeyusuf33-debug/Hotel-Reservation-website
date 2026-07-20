@@ -1,0 +1,61 @@
+{%extends "base.html"%}
+{%load static%}
+{%block home_pagecontent%}
+<section class="tm-white-bg section-padding-bottom">
+    <div class="container">
+        <div class="row">
+            <div class="tm-section-header section-margin-top">
+                <div class="col-lg-4 col-md-3 col-sm-3"><hr></div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <h2 class="tm-section-titel" style="margin-left:35%;">Dashboard</h2>
+                </div>
+                <div class="col-lg-4 col-md-3 col-sm-3"><hr></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" style="padding: 0 40px;">
+        <div class="row">
+            <div class="col-lg-12 fs-4" style="font-size:20px; font-family: Lora, sans-serif; margin-bottom: 30px;">
+                <p>Welcome, <strong>{{request.user.username}}</strong>!</p>
+            </div>
+        </div>
+
+        <!-- NEW: Bookings Table Display Section -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 style="margin-bottom: 20px; border-bottom: 2px solid #FCDD44; padding-bottom: 10px;">Your Hotel Bookings</h3>
+
+                {% if bookings %}
+                    <div class="table-responsive">
+                        <table class="table" style="width:100%; border-collapse: collapse;">
+                            <thead>
+                                <tr style="background-color: #f2f2f2; text-align: left;">
+                                    <th style="padding: 12px; border-bottom: 2px solid #ddd;">Room/Hotel Info</th>
+                                    <th style="padding: 12px; border-bottom: 2px solid #ddd;">Check-In</th>
+                                    <th style="padding: 12px; border-bottom: 2px solid #ddd;">Check-Out</th>
+                                    <th style="padding: 12px; border-bottom: 2px solid #ddd;">Total Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for booking in bookings %}
+                                    <tr>
+                                        <td style="padding: 12px; border-bottom: 1px solid #ddd;">{{ booking.room }}</td>
+                                        <td style="padding: 12px; border-bottom: 1px solid #ddd;">{{ booking.check_in }}</td>
+                                        <td style="padding: 12px; border-bottom: 1px solid #ddd;">{{ booking.check_out }}</td>
+                                        <td style="padding: 12px; border-bottom: 1px solid #ddd; font-weight: bold; color: #27ae60;">${{ booking.total_amount }}</td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                {% else %}
+                    <div class="alert alert-info" style="background-color: #f4f6f7; padding: 15px; border-radius: 4px;">
+                        <p style="margin: 0;">You haven't made any reservations yet.</p>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+{%endblock%}

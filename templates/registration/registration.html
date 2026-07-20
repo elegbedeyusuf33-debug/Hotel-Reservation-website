@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block home_pagecontent %}
+<!-- gray bg spacing section matching your structure -->
+<section class="container tm-home-section-1" id=""></section>
+
+<!-- white bg wrapper cloned from contact.html -->
+<section class="tm-white-bg section-padding-bottom">
+    <div class="container">
+        <div class="row">
+            <!-- Matches the width container from your contact page -->
+            <div class="col-lg-10">
+
+                <!-- Matching the header layout style -->
+                <h5 style="margin-bottom: 20px;">&nbsp; Create an Account</h5>
+
+                <!-- Registration Form using fluid layout styling -->
+                <form method="POST" class="reveal-content">
+                    {% csrf_token %}
+
+                    <!--
+                      Because Django's {{ form.as_p }} outputs raw tags, we use a small
+                      CSS override target below to inject your contact page's "form-control"
+                      styling rules safely into Django's dynamically rendered text inputs.
+                    -->
+                    <style>
+                        .django-form-wrapper p {
+                            margin-bottom: 20px;
+                            width: 100%;
+                            word-wrap: break-word; /* Forces long text to wrap to the next line */
+                        }
+                        .django-form-wrapper label {
+                            display: block;
+                            font-weight: bold;
+                            margin-bottom: 5px;
+                            width: 100%;
+                        }
+                        /* Apply height ONLY to standard text inputs, not checkboxes or helper text */
+                        .django-form-wrapper input[type="text"],
+                        .django-form-wrapper input[type="email"],
+                        .django-form-wrapper input[type="password"],
+                        .django-form-wrapper select {
+                            display: block;
+                            width: 100%;
+                            height: 38px;
+                            padding: 6px 12px;
+                            font-size: 14px;
+                            line-height: 1.42857143;
+                            color: #555;
+                            background-color: #fff;
+                            border: 1px solid #ccc;
+                            border-radius: 4px;
+                            box-sizing: border-box; /* Ensures padding doesn't stretch the input width */
+                        }
+                        /* Fixes the password requirement text layout */
+                        .django-form-wrapper .helptext {
+                            display: block;
+                            font-size: 13px;
+                            color: #737373;
+                            margin-top: 5px;
+                            line-height: 1.5;
+                            width: 100%;
+                            white-space: normal; /* Ensures text doesn't stay on one single long line */
+                        }
+                        .django-form-wrapper .errorlist {
+                            color: #a94442;
+                            padding-left: 0;
+                            list-style: none;
+                            font-size: 13px;
+                            margin-bottom: 5px;
+                        }
+                        /* Fixes list items if Django outputs requirements in a list format */
+                        .django-form-wrapper ul {
+                            padding-left: 20px;
+                            margin-top: 5px;
+                            margin-bottom: 10px;
+                        }
+                        .django-form-wrapper li {
+                            font-size: 13px;
+                            color: #737373;
+                            line-height: 1.4;
+                            margin-bottom: 3px;
+                            list-style-type: disc; /* Puts clean bullet points back */
+                        }
+                    </style>
+
+                    <div class="django-form-wrapper">
+                        {{ form.as_p }}
+                    </div>
+
+                    <!-- Clean matching submit button layout -->
+                    <div style="margin-top: 20px;">
+                        <button type="submit" style="background:#FFD700; color:black; width:100px; height:30px; border:solid 1px orange; border-radius:10px;">
+                            Register
+                        </button>
+                    </div>
+                </form>
+
+                <div style="margin-top: 15px; padding-left: 5px;">
+                    <small>Already have an account? <a href="/login/" style="color: orange;">Log in here</a></small>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

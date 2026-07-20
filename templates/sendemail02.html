@@ -1,0 +1,51 @@
+
+{%extends "base.html"%}
+{%load static%}
+{%block home_pagecontent%}
+<section class="tm-white-bg section-padding-bottom">
+<div class="container">
+<div class="row">
+<div class="col-md-11 text-center p-4 fs-4">Send a test message</div></div>
+<div class="row">
+<div class="col-md-11 text-center p-4">
+
+       <form method="POST" id="validationForm">
+   {%csrf_token%}
+
+    <input type="text" name="message" required>
+
+<div style="padding:10px;">
+    <button type="button" id="submitButton" style="background: #FCDD44;color:black; width:130px; height:30px; border:solid 1px orange; border-radius:10px;">Send message
+</button>
+</div>
+</form>
+
+</div></div>   </div></section>
+
+<script>
+    const form = document.getElementById('validationForm');
+    const submitButton = document.getElementById('submitButton');
+
+    submitButton.addEventListener('click', function() {
+        // Manually tell the browser to check all required fields and
+        // display the native "Please fill in this field" pop-up.
+        if (form.reportValidity()) {
+            // If validation PASSES (i.e., the field is filled),
+            // then manually submit the form.
+            form.submit();
+        }
+    });
+
+    // This handles the 'Enter' key press on the form
+    form.addEventListener('submit', function(event) {
+        // Prevent default submission to run our manual check
+        event.preventDefault();
+
+        // This is the key: it checks required fields and shows the bubble
+        if (form.reportValidity()) {
+            // If valid, submit the form normally
+            form.submit();
+        }
+    });
+</script>
+{%endblock%}

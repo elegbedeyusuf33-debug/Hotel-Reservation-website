@@ -1,0 +1,40 @@
+
+{%extends "base.html"%}
+{%load static%}
+{%block home_pagecontent%}
+<section class="tm-white-bg section-padding-bottom">
+<div class="container">
+<div class="row">
+<div class="col-md-11 text-center p-4 fs-4">Send a test message</div></div>
+<div class="row">
+<div class="col-md-11 text-center p-4">
+<form method="POST">
+{%csrf_token%}
+<input type="text" name="message">
+<div style="padding:10px;">
+<button type="submit" style="background:lightskyblue;color:white;">Send message
+</button>
+</div>
+</form>
+
+</div></div>   </div></section>
+{%endblock%}
+
+
+
+<div class="container">
+<div class="row">
+<div class="col-md-11 text-center p-4 fs-4">Send a test message</div></div>
+<div class="row">
+<div class="col-md-11 text-center p-4">
+<form method="POST">
+{%csrf_token%}
+<input type="text" name="message" **required**>
+<div style="padding:10px;">
+<button type="submit" style="background:lightskyblue;color:white;">Send message
+</button>
+</div>
+</form>
+
+</div></div>   </div></section>
+{%endblock%}

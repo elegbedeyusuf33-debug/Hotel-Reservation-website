@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block home_pagecontent %}
+<!-- gray spacing bg matching your site header style -->
+<section class="container tm-home-section-1" id=""></section>
+
+<!-- white bg main container -->
+<section class="tm-white-bg section-padding-bottom">
+    <div class="container">
+        <div class="row">
+
+            <!-- Standard hotel layout title with the orange divider lines -->
+            <div class="tm-section-header section-margin-top">
+                <div class="col-lg-4 col-md-3 col-sm-3"><hr></div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <h2 class="tm-section-titel" style="text-align: center; text-transform: uppercase;">
+                        LAUNDRY SERVICE
+                    </h2>
+                </div>
+                <div class="col-lg-4 col-md-3 col-sm-3"><hr></div>
+            </div>
+
+            <!-- Left-aligned content container matching contact.html width -->
+            <div class="col-lg-10" style="margin-top: 20px;">
+                <h5 style="margin-bottom: 25px;">&nbsp; Schedule professional washing and pressing</h5>
+
+                <!-- Card-like order box -->
+                <div class="reveal-content" style="padding: 25px; border: 1px solid #ddd; border-radius: 10px; background-color: #fcfcfc;">
+                    <h4 style="color: #FCDD44; margin-bottom: 10px;">Full Load Clean & Fold</h4>
+                    <p style="font-size: 16px; color: #555; margin-bottom: 20px;">
+                        Let our staff handle your garments. Includes washing, machine drying, iron pressing, and direct room return.
+                    </p>
+                    <p style="font-size: 22px; font-weight: bold; margin-bottom: 25px; color: #333;">
+                        Total Price: <span style="color: orange;">$35</span>
+                    </p>
+
+                    <!-- Secure payment form to Paystack -->
+                    <form action="{% url 'pages:initiatepay' %}" method="POST">
+                        {% csrf_token %}
+                        <input type="hidden" name="service_name" value="Laundry Booking">
+                        <input type="hidden" name="amount" value="35">
+
+                        <button type="submit" style="background:#FFD700; color:black; width:150px; height:40px; border:solid 1px orange; border-radius:10px; font-weight: bold; cursor: pointer;">
+                            Pay $35 Now
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+{% endblock %}

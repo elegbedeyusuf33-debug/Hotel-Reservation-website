@@ -1,0 +1,186 @@
+{%extends "base.html"%}
+{%load static%}
+
+{%block home_pagecontent%}
+<!-- gray bg -->
+<section class="container tm-home-section-1" id="more">
+<div class="row">
+<div class="col-lg-4 col-md-4 col-sm-6">
+<div class="tm-home-box-1">
+    <!-- Single title header replacing the old navigation tabs -->
+    <div style="background-color: #FFD700; padding: 20px 25px; text-align: center;">
+        <h3 style="margin: 0; color: #333 !important; font-weight: bold; text-transform: uppercase; font-size: 18px; letter-spacing: 1px;">Hotel Booking</h3>
+    </div>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane fade in active tm-white-bg" id="hotel">
+            <div class="tm-search-box effect2">
+                <form action="/makereservation/" method="POST" class="hotel-search-form">
+                    {%csrf_token%}
+                    <div class="tm-form-inner">
+                        <div class="form-group">
+                            <select class="form-control" name="hotel" id="location-select">
+                                <option value="">-- Select Destination/Hotel -- </option>
+                                <option value="new_york">New York Luxury Suite</option>
+                                <option value="paris">Paris Boutique Room</option>
+                                <option value="shangrila">Shangri-La</option>
+                                <option value="chatrium">Chatrium</option>
+                                <option value="fourseasons">Four Seasons</option>
+                                <option value="hilton">Hilton</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <div class='input-group date' id='datetimepicker1'>
+                                <input type='text' name="checkin" class="form-control" placeholder="Check-in Date" />
+                                <span class="input-group-addon">
+                                    <span class="fa fa-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class='input-group date' id='datetimepicker2'>
+                                <input type='text' name="checkout" class="form-control" placeholder="Check-out Date" />
+                                <span class="input-group-addon">
+                                    <span class="fa fa-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group margin-bottom-0">
+                            <select class="form-control" name="guests">
+                                <option value="">-- Guests -- </option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5p">5+</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group tm-yellow-gradient-bg text-center">
+                        <button type="submit" name="submit" class="tm-yellow-btn">Check Now</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<div class="col-lg-4 col-md-4 col-sm-6">
+    <div class="tm-home-box-1 tm-home-box-1-2 tm-home-box-1-center">
+        <img src="{%static 'img/index-01.jpg'%}" alt="New York Room">
+        <a href="#hotel" onclick="selectDestination('new_york')">
+            <div class="tm-green-gradient-bg tm-city-price-container">
+                <span>New York</span>
+                <span>$500</span>
+            </div>
+        </a>
+    </div>
+</div>
+<div class="col-lg-4 col-md-4 col-sm-6">
+    <div class="tm-home-box-1 tm-home-box-1-2 tm-home-box-1-right">
+        <img src="{%static 'img/index-02.jpg'%}" alt="Paris Room" class="img-responsive">
+        <a href="#hotel" onclick="selectDestination('paris')">
+            <div class="tm-red-gradient-bg tm-city-price-container">
+                <span>Paris</span>
+                <span>$700</span>
+            </div>
+        </a>
+    </div>
+</div>
+
+<div style="margin-top:100px"></div>
+<div class="section-margin-top"></div>
+
+<div class="row">
+<div class="col-lg-12"></div>
+</div>
+</div>
+</section>
+
+<!-- white bg -->
+<section class="tm-white-bg section-padding-bottom">
+<div class="container">
+<div class="row">
+<div class="tm-section-header section-margin-top">
+<div class="col-lg-4 col-md-3 col-sm-3"><hr></div>
+<div class="col-lg-4 col-md-6 col-sm-6"><h2 class="tm-section-title">Popular Packages</h2></div>
+<div class="col-lg-4 col-md-3 col-sm-3"><hr></div>
+</div>
+<div class="col-lg-6">
+<div class="tm-home-box-3">
+<div class="tm-home-box-3-img-container">
+<img src="{%static 'img/index-07.jpg'%}" alt="image" class="img-responsive">
+</div>
+<div class="tm-home-box-3-info">
+<p class="tm-home-box-3-description">Proin gravida nibhvell velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum</p>
+<div class="tm-home-box-2-container">
+<a href="#" class="tm-home-box-2-link"><i class="fa fa-heart tm-home-box-2-icon border-right"></i></a>
+<a href="#" class="tm-home-box-2-link"><span class="tm-home-box-2-description box-3">Travel</span></a>
+<a href="#" class="tm-home-box-2-link"><i class="fa fa-edit tm-home-box-2-icon border-left"></i></a>
+</div>
+</div>
+</div>
+</div>
+<div class="col-lg-6">
+<div class="tm-home-box-3">
+<div class="tm-home-box-3-img-container">
+<img src="{%static 'img/index-08.jpg'%}" alt="image" class="img-responsive">
+</div>
+<div class="tm-home-box-3-info">
+<p class="tm-home-box-3-description">Proin gravida nibhvell velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum</p>
+<div class="tm-home-box-2-container">
+<a href="#" class="tm-home-box-2-link"><i class="fa fa-heart tm-home-box-2-icon border-right"></i></a>
+<a href="#" class="tm-home-box-2-link"><span class="tm-home-box-2-description box-3">Travel</span></a>
+<a href="#" class="tm-home-box-2-link"><i class="fa fa-edit tm-home-box-2-icon border-left"></i></a>
+</div>
+</div>
+</div>
+</div>
+<div class="col-lg-6">
+<div class="tm-home-box-3">
+<div class="tm-home-box-3-img-container">
+<img src="{%static 'img/index-09.jpg'%}" alt="image" class="img-responsive">
+</div>
+<div class="tm-home-box-3-info">
+<p class="tm-home-box-3-description">Proin gravida nibhvell velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum</p>
+<div class="tm-home-box-2-container">
+<a href="#" class="tm-home-box-2-link"><i class="fa fa-heart tm-home-box-2-icon border-right"></i></a>
+<a href="#" class="tm-home-box-2-link"><span class="tm-home-box-2-description box-3">Travel</span></a>
+<a href="#" class="tm-home-box-2-link"><i class="fa fa-edit tm-home-box-2-icon border-left"></i></a>
+</div>
+</div>
+</div>
+</div>
+<div class="col-lg-6">
+<div class="tm-home-box-3">
+<div class="tm-home-box-3-img-container">
+<img src="{%static 'img/index-10.jpg'%}" alt="image" class="img-responsive">
+</div>
+<div class="tm-home-box-3-info">
+<p class="tm-home-box-3-description">Proin gravida nibhvell velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum</p>
+<div class="tm-home-box-2-container">
+<a href="#" class="tm-home-box-2-link"><i class="fa fa-heart tm-home-box-2-icon border-right"></i></a>
+<a href="#" class="tm-home-box-2-link"><span class="tm-home-box-2-description box-3">Travel</span></a>
+<a href="#" class="tm-home-box-2-link"><i class="fa fa-edit tm-home-box-2-icon border-left"></i></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+{%endblock%}
+<script>
+function selectDestination(val) {
+    var selectObj = document.getElementById('location-select');
+    if(selectObj) {
+        selectObj.value = val;
+    }
+}
+</script>

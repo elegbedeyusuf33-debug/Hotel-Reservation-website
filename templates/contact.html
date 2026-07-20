@@ -1,0 +1,58 @@
+
+{%extends "base.html"%}
+{%load static%}
+
+
+
+{%block home_pagecontent%}
+<!-- gray bg -->
+<section class="container tm-home-section-1"
+id="">
+
+</section>
+
+<!-- white bg -->
+<section class="tm-white-bg section-padding-bottom">
+<div class="container">
+<div class="row">
+<div class="col-lg-10">
+<h5>  Send us a request !</h5>
+	<form action="submit_form" method="post" class="reveal-content">
+	{%csrf_token%}
+	<div class="form-group">
+            <input name="name" type="name" class="form-control" id="name" placeholder="Enter your name">
+            </div>
+            <div class="form-group">
+               <input name="email" type="email" class="form-control" id="email" placeholder="Enter your email">
+            </div>
+            <div class="form-group">
+                <input name="number" type="number" class="form-control" id="number" placeholder="Enter your phone number">
+            </div>
+            <div class="form-group">
+                <input name="req" type="req" class="form-control" id="req" placeholder="Enter your request">
+            </div>
+
+			<div>
+			<button type="submit" style="background:#FFD700; color:black; width:100px; height:30px; border:solid 1px orange; border-radius:10px;">
+			Submit
+			</button>
+			</div></form>
+			</div>
+
+
+
+
+</div>
+</div>
+
+
+
+
+
+
+</section>
+
+
+
+
+{%endblock%}

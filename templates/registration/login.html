@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block home_pagecontent %}
+<!-- gray bg spacing section matching your structure -->
+<section class="container tm-home-section-1" id=""></section>
+
+<!-- white bg wrapper cloned from contact.html / register.html -->
+<section class="tm-white-bg section-padding-bottom">
+    <div class="container">
+        <div class="row">
+            <!-- Matches the width container from your other pages -->
+            <div class="col-lg-10">
+
+                <!-- Matching the clean header layout style -->
+                <h5 style="margin-bottom: 20px;">&nbsp; Log In to Your Account</h5>
+
+                <!-- Login Form using fluid layout styling -->
+                <form method="POST" class="reveal-content">
+                    {% csrf_token %}
+
+                    <!-- Matches the clean, mobile-responsive input styling from your register page -->
+                    <style>
+                        .django-form-wrapper p {
+                            margin-bottom: 15px;
+                        }
+                        .django-form-wrapper label {
+                            display: block;
+                            font-weight: bold;
+                            margin-bottom: 5px;
+                        }
+                        .django-form-wrapper input {
+                            display: block;
+                            width: 100%;
+                            height: 38px;
+                            padding: 6px 12px;
+                            font-size: 14px;
+                            line-height: 1.42857143;
+                            color: #555;
+                            background-color: #fff;
+                            background-image: none;
+                            border: 1px solid #ccc;
+                            border-radius: 4px;
+                            box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+                            transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+                        }
+                        .django-form-wrapper .errorlist {
+                            color: #a94442;
+                            padding-left: 0;
+                            list-style: none;
+                            font-size: 13px;
+                            margin-bottom: 5px;
+                        }
+                    </style>
+
+                    <div class="django-form-wrapper">
+                        {{ form.as_p }}
+                    </div>
+
+                    <!-- Submit button matching your theme -->
+                    <div style="margin-top: 20px;">
+                        <button type="submit" style="background:#FFD700; color:black; width:100px; height:30px; border:solid 1px orange; border-radius:10px;">
+                            Login
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Helper links grouped neatly at the bottom -->
+                <div style="margin-top: 20px; padding-left: 5px; line-height: 1.8;">
+                    <div>
+                        <small>Forgot your password? <a href="{% url 'password_reset' %}" style="color: orange; font-weight: bold;">Click to Reset Password</a></small>
+                    </div>
+                    <div>
+                        <small>Don't have an account? <a href="/register" style="color: orange;">Register here</a></small>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

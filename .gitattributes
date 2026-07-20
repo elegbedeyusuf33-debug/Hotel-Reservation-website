@@ -1,6 +1,6 @@
-# Hide the heavy deployment files
-staticfiles/**/* linguist-vendored
+# Hide all heavy JavaScript files everywhere so Python stays highest
+**/*.js linguist-vendored
 
-# Let GitHub show your true JavaScript and CSS skills
-*.js linguist-detectable=true
+# Keep HTML and CSS visible normally
+*.html linguist-detectable=true
 *.css linguist-detectable=true

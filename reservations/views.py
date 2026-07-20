@@ -121,16 +121,6 @@ def SubmitSuccess(request):
      return render(request, "success.html")
 
 
-def CustomReservation(request):
-    data = {"msg": "Custom reservation!!"}
-    return render(request, "customreservation.html", data)
-
-
-def CarHire(request):
-    data = {"msg": "Custom reservation!!"}
-    return render(request, "customreservation.html", data)
-
-
 def VerifyPayment(request, ref):
     try:
         booking = Booking.objects.get(paystack_reference=ref)

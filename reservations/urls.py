@@ -10,7 +10,5 @@ urlpatterns = [
     path("successful/",Successful, name="successful"),
     path("noreservation/",Noreservation, name="noreservation"),
     path("success/",SubmitSuccess, name="success"),
-    path("customreservation",CustomReservation, name="customreserve"),
-    path("carhire",CarHire, name="carhire"),
     path('verify-payment/<str:ref>/', VerifyPayment, name='verify_payment'),
 ]

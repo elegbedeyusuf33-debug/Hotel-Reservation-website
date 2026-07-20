@@ -86,23 +86,6 @@ def initiatepay(request):
 
     return redirect("/")
 
-def SendEmail(request):
-      from django.core.mail import send_mail
-      if request.method=="POST":
-         message =request.POST.get('message')
-         subject="Demo message from  your app"
-         sender="app@admin.io"
-         reciever=["testuser@users.io"]
-         xval = send_mail(
-            subject,#subject title
-            message,#message
-            sender,        # From
-            reciever,        # To
-            fail_silently=False,
-            )
-      data={"pagetitle":"Send test message"}
-      return render(request,"sendemail02.html",data)
-
 
 def RequestSuccess(request):
       data={"pagetitle":"Success"}

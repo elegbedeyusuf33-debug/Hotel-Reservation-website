@@ -26,7 +26,6 @@ urlpatterns = [
   path("services",Services,name="services"),
   path("requestsuccess",RequestSuccess,name="reqsuccess"),
   path("register", RegisterUser,name="registration"),
-  path("sendemail",SendEmail,name="sendemail02"),
   path("dashboard", Dashboard,name="registration"),
   path("thankyou", Thanks,name="thankyou"),
   path("submit_form", submit_form,name="submit_form"),

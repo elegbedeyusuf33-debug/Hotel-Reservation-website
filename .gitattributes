@@ -1,0 +1,3 @@
+# Exclude external libraries and static assets from language stats
+*.js linguist-vendor=true
+*.css linguist-vendor=true

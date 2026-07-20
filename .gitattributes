@@ -1,13 +1,3 @@
-# Hide the heavy deployment folder completely
-staticfiles/**/* linguist-vendored
-
-# Hide massive third-party design and script libraries
-**/bootstrap* linguist-vendored
-**/jquery* linguist-vendored
-**/*.min.css linguist-vendored
-**/*.min.js linguist-vendored
-static/admin/**/* linguist-vendored
-
-# Allow your own custom frontend work to show up normally
-*.js linguist-detectable=true
-*.css linguist-detectable=true
+# Force Python to stay at the top by treating JS and CSS as documentation files
+*.js linguist-documentation=true
+*.css linguist-documentation=true

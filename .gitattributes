@@ -1,3 +1,4 @@
-# Force Python to stay at the top by treating JS and CSS as documentation files
-*.js linguist-documentation=true
-*.css linguist-documentation=true
+# Force Python to be the main language by lowering the weight of frontend files
+*.html linguist-documentation=true
+*.js linguist-detectable=true linguist-data=true
+*.css linguist-detectable=true linguist-data=true

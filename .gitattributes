@@ -1,6 +1,6 @@
-# Hide the massive deployment folders
+# Hide the heavy deployment files
 staticfiles/**/* linguist-vendored
 
-# Force Python to be the dominant language by treating your JS files as Python
-*.js linguist-language=Python
+# Let GitHub show your true JavaScript and CSS skills
+*.js linguist-detectable=true
 *.css linguist-detectable=true

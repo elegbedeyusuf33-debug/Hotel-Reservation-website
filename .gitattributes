@@ -1,8 +1,6 @@
-# Exclude everything in static folders completely
-hotel/static/**/* linguist-vendored
-static/**/* linguist-vendored
+# Hide the massive deployment folders
 staticfiles/**/* linguist-vendored
 
-# Exclude all JS and CSS files anywhere in the repo
-**/*.js linguist-detectable=false
-**/*.css linguist-detectable=false
+# Force Python to be the dominant language by treating your JS files as Python
+*.js linguist-language=Python
+*.css linguist-detectable=true

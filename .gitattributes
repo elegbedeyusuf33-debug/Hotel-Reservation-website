@@ -1,3 +1,8 @@
-# Exclude external libraries and static assets from language stats
-*.js linguist-vendor=true
-*.css linguist-vendor=true
+# Exclude everything in static folders completely
+hotel/static/**/* linguist-vendored
+static/**/* linguist-vendored
+staticfiles/**/* linguist-vendored
+
+# Exclude all JS and CSS files anywhere in the repo
+**/*.js linguist-detectable=false
+**/*.css linguist-detectable=false

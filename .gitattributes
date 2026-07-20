@@ -1,4 +1,13 @@
-# Force Python to be the main language by lowering the weight of frontend files
-*.html linguist-documentation=true
-*.js linguist-detectable=true linguist-data=true
-*.css linguist-detectable=true linguist-data=true
+# Hide the heavy deployment folder completely
+staticfiles/**/* linguist-vendored
+
+# Hide massive third-party design and script libraries
+**/bootstrap* linguist-vendored
+**/jquery* linguist-vendored
+**/*.min.css linguist-vendored
+**/*.min.js linguist-vendored
+static/admin/**/* linguist-vendored
+
+# Allow your own custom frontend work to show up normally
+*.js linguist-detectable=true
+*.css linguist-detectable=true
